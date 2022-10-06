@@ -40,7 +40,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         // Get all blogs (along with comments) by the logged in user. Is this method correct??***
         const blogData = await Blog.findAll({
             where: {
-                author: req.body.author
+                author: req.body.author // Where the author of the blog post is the same id as the user who is logged in
             },
             include: [
                 {
