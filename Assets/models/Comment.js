@@ -12,7 +12,16 @@ Comment.init (
             primaryKey: true,
             autoIncrement: true,
         },
-        // which user posted the comment?
+        // content of comment
+        content: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            notEmpty: true,
+            validate: {
+                len: [0, 500] // Allow no more than 500 characters
+            }
+        },
+        // which user posted the comment
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
