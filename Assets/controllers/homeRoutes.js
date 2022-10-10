@@ -40,7 +40,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         // Get all blogs (along with comments) by the logged in user. Is this method correct??***
         const blogData = await Blog.findAll({
             where: {
-                author: req.body.author // Where the author of the blog post is the same id as the user who is logged in
+                user_id: req.session.user_id, // or author: req.params.author ?
             },
             include: [
                 {
@@ -60,7 +60,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         // render this data to dashboard.handlebars template!
         res.render('dashboard', {
             userBlogs,
-            logged_in: req.session.logged_in
+            logged_in: true,
         });
     }
     catch (err) {
@@ -76,3 +76,5 @@ router.get('/login', (req, res) => {
       }
       res.render('login');
 });
+
+module.exports = router;

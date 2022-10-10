@@ -61,4 +61,6 @@ router.put('/:id', withAuth, async (req, res) => {
     } catch (err) {
         res.status(404).json(err)
     }
-})
+});
+
+module.exports = router;
