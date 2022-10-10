@@ -26,11 +26,6 @@ router.delete('/:id', withAuth, async (req, res) => {
             },
         });
 
-        if (!blogData) {
-            res.status(404).json({ message: 'No blog post found with this id!' });
-      return;
-        }
-
         res.status(200).json(blogData);
     } catch (err) {
         res.status(400).json(err);
@@ -44,7 +39,7 @@ router.put('/:id', withAuth, async (req, res) => {
             {
                 title: req.params.title,
                 contents: req.params.content,
-                author: req.params.author, // Can I exclude this one?
+                //author: req.params.author, // Can I exclude this one?
             },
             {
                 where: {
@@ -63,6 +58,6 @@ router.put('/:id', withAuth, async (req, res) => {
     }
 });
 
-
+module.exports = router;
 
 
