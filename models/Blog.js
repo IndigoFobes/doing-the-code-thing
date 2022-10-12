@@ -25,20 +25,17 @@ Blog.init (
             // Any constraints?
         },
         // user id
-        author: {
+        user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
-                model: 'user',
-                key: 'id'
+              model: 'user',
+              key: 'id',
             },
-        }
+          },
     },
     {
         sequelize,
-        timestamps: true,
-        createdAt: true,
-        updatedAt: false,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'blog'

@@ -1,0 +1,12 @@
+[
+    {
+        "content": "I didn't understand sql at all. Thanks for this useful information.",
+        "user_id": 1,
+        "blog_id": 1
+    },
+    {
+        "content": "My dream is to freelance!",
+        "user_id": 2,
+        "blog_id": 2
+    }
+]

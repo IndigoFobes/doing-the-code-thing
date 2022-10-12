@@ -24,12 +24,11 @@ Comment.init (
         // which user posted the comment
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
+              model: 'user',
+              key: 'id',
+            },
+          },
         // reference the blog post under which it was created
         blog_id: {
             type: DataTypes.INTEGER,
@@ -42,9 +41,7 @@ Comment.init (
     },
     {
         sequelize,
-        timestamps: true,
-        createdAt: true,
-        updatedAt: false,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'comment'

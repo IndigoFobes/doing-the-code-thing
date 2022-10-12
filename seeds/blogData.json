@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Understanding SQL for Beginners",
+        "contents": "This is a very long article about SQL and how to use it. If you are a beginner, keep reading to learn more about this wonderful technology. Etc.",
+        "user_id": 2
+    },
+    {
+       "title": "Becoming a Freelance Web Developer",
+       "contents": "If you are looking for a good way to get into freelancing your skills, here's what you need to know... Continued.",
+       "user_id": 1 
+    },
+    {
+        "title": "Talk about Tailwind",
+        "contents": "As a UI/UX web designer, I have used a plethora of frameworks for design, but my favorite is Tailwind, hands down.",
+        "user_id": 3
+    }
+]

@@ -17,7 +17,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // delete comment
-router.delete('/:id', wihtAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.destroy({
             where: {
