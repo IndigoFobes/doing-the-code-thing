@@ -1,14 +1,25 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// Get all blogs
+router.get('/', async (req, res) => {
+    try {
+        const blogData = await Blog.findAll({
+            include: [{ model: Comment }]
+        });
+        res.status(200).json(blogData);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
 // post (new blog)
 // *** does the route add to '/dashboard'?
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newBlog = await Blog.create({
             ...req.body,
-            user_id: req.session.user_id,
+            user_id: req.session.user_id, // What is this doing?
         });
         res.status(200).json(newBlog);
     } catch (err) {
@@ -17,12 +28,12 @@ router.post('/', withAuth, async (req, res) => {
 })
 
 // delete blog based on id
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const blogData = await Blog.destroy({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
+                //user_id: req.session.user_id,
             },
         });
 
