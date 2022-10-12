@@ -12,10 +12,11 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(400).json(err);
     }
-})
+});
+
 // post (new blog)
 // *** does the route add to '/dashboard'?
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newBlog = await Blog.create({
             ...req.body,
@@ -25,15 +26,15 @@ router.post('/', async (req, res) => {
     } catch (err) {
         res.status(400).json(err);
     }
-})
+});
 
 // delete blog based on id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const blogData = await Blog.destroy({
             where: {
                 id: req.params.id,
-                //user_id: req.session.user_id,
+                user_id: req.session.user_id,
             },
         });
 
@@ -41,7 +42,7 @@ router.delete('/:id', async (req, res) => {
     } catch (err) {
         res.status(400).json(err);
     }
-})
+});
 
 // put (update) blog route
 router.put('/:id', withAuth, async (req, res) => {
@@ -49,13 +50,12 @@ router.put('/:id', withAuth, async (req, res) => {
         const blogData = await Blog.update(
             {
                 title: req.params.title,
-                contents: req.params.content,
-                //author: req.params.author, // Can I exclude this one?
+                contents: req.params.contents,
             },
             {
                 where: {
                     id: req.params.id,
-                user_id: req.session.user_id,
+                    user_id: req.session.user_id,
                 }
             },
         );
