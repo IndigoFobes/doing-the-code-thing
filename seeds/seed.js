@@ -14,20 +14,21 @@ const seedDatabase = async () => {
         returning: true,
     });
 
-    // seed blogs
+    // seed blogs with blogData.json
     for (const blog of blogData) {
         await Blog.create({
             ...blog,
             user_id: users[Math.floor(Math.random() * users.length)].id,
         });
-    }
+    };
 
+    // seed comments with commentData.json
     for (const comment of commentData) {
         await Comment.create({
             ...comment,
             user_id: users[Math.floor(Math.random() * users.length)].id, // Don't know if this is what I need here. ***
-        })
-    }
+        });
+    };
 
     process.exit(0);
 };

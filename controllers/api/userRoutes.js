@@ -1,6 +1,17 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+
+// get route for all users
+router.get('/', async (req, res) => {
+    try {
+        const userData = await User.findAll();
+        res.status(200).json(userData);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 // Route to CREATE a new user (add them to the database and log them in)
 router.post('/', async (req, res) => {
     try {
