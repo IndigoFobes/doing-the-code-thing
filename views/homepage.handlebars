@@ -1,0 +1,13 @@
+<div>
+    <h2>
+        Welcome to the homepage!
+    </h2>
+    <!-- Loop over each existing blog --> 
+    {{#each blogPosts as |blog| }}
+    <div>
+        <h3>
+            {{blog.title}}
+        </h3>
+    </div>
+    {{/each}}
+</div>

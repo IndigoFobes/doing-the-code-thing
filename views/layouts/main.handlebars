@@ -10,9 +10,28 @@
 </head>
 <body>
     <div>
-        <h1 class="text-3xl font-bold underline">
-            Hello world!
-        </h1>
+        <header>   
+            <h1 class="text-3xl font-bold underline">
+                Doing the Code Thing!
+            </h1>
+            <nav>
+                <a href="/dashboard">dashboard</a>
+                {{#if logged_in}}
+                <button class="no-button" id="logout">logout</button>
+                {{else}}
+                <a href="/login">login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <main>
+            <!-- Render the sub layout -->
+            {{{ body }}}
+        </main>
     </div>
+
+    <!-- if user is logged in, include script for logout js -->
+    {{#if logged_in}}
+    <script src="../../public/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>

@@ -4,12 +4,12 @@
 
     "version": "1.0.0",
 
-    "main": "Assets/server.js",
+    "main": "server.js",
 
     "scripts": {
 
-        "start": "node Assets/server.js",
-        
+        "start": "node server.js",
+
         "seed": "node seeds/seed.js"
 
     },
@@ -32,6 +32,13 @@
 
         "sequelize": "^6.3.5"
 
+    },
+
+    "devDependencies": {
+
+        "@types/express-handlebars": "^6.0.0"
+
     }
+
 }
 
