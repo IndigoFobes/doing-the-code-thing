@@ -3,12 +3,12 @@ const Blog = require('./Blog');
 const Comment = require('./Comment');
 
 User.hasMany(Blog, {
-    foreignKey: 'author',
+    foreignKey: 'user_id',
     // on delete CASCADE? (if I delete a USER, delete their posts)
 });
 
 Blog.belongsTo(User, {
-    foreignKey: 'author',
+    foreignKey: 'user_id',
 });
 
 User.hasMany(Comment, {

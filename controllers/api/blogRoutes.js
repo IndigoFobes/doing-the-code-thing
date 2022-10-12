@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { Blog, Comment } = require('../../models');
+const { Blog, Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all blogs
 router.get('/', async (req, res) => {
     try {
         const blogData = await Blog.findAll({
-            include: [{ model: Comment }]
+            include: [{ model: Comment }, { model: User }]
         });
         res.status(200).json(blogData);
     } catch (err) {
