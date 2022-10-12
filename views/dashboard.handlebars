@@ -1,1 +1,21 @@
-<h1>Welcome to the dashboard</h1>
+<div class="lg:flex lg:items-center lg:justify-between">
+     <div class="container mx-auto">
+        <h2 class="text-2xl leading-7 text-indigo-600 sm:truncate sm:text-3xl sm:tracking-tight">
+            Welcome to your Dashboard!
+        </h2>
+        <!-- Loop over each existing blog --> 
+        {{#each userBlogs as |blog| }}
+        <div class="bg-yellow-300 rounded-md p-3 m-3">
+            <h3 class="text-center font-bold">
+                {{blog.title}}
+            </h3>
+            <p class="text-center">
+                {{blog.contents}}
+            </p>
+        </div>
+        {{/each}}
+     </div>
+     <button class="no-button bg-indigo-600 p-3 rounded-md" id="new-post">Add a Post!</button>
+</div>
+
+<script src="js/dashboard.js"></script>
