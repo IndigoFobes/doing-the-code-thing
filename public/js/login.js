@@ -1,3 +1,4 @@
+// Sing in an existing user
 const loginFormHandler = async (event) => {
     event.preventDefault();
     
@@ -22,3 +23,30 @@ const loginFormHandler = async (event) => {
 }
 
 document.querySelector('#login-button').addEventListener('click', loginFormHandler);
+
+// Sign up a new user
+const signupFormHandler = async (event) => {
+    event.preventDefault();
+
+    const username = document.querySelector('#username-signup').value.trim();
+    const password = document.querySelector('#password-signup').value.trim();
+
+    //alert('button clicked!');
+    if (username && password) {
+        const response = await fetch('api/users', {
+            method: 'POST',
+            body: JSON.stringify({ username, password }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if(response.ok) {
+            //alert('you are logged in!')
+            document.location.replace('/dashboard');
+        } else {
+            alert('Failed to create new account. Your username must be unique, and your password must be at least 8 characters long.')
+        }
+    }
+
+}
+
+document.querySelector('#signup-button').addEventListener('click', signupFormHandler);
