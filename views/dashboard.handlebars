@@ -1,6 +1,6 @@
 <div class="lg:flex lg:items-center lg:justify-between">
      <div class="container mx-auto">
-        <h2 class="text-2xl leading-7 text-indigo-600 sm:truncate sm:text-3xl sm:tracking-tight">
+        <h2 class="text-2xl leading-7 text-indigo-600 mb-5 sm:truncate sm:text-3xl sm:tracking-tight">
             Welcome to your Dashboard!
         </h2>
         <!-- Loop over each existing blog --> 
@@ -17,11 +17,11 @@
                 {{blog.contents}}
             </p>
         </div>
-        <button class="bg-red-500 rounded-sm p-1 text-white" type="submit" id="delete-post" data-id="{{blog.id}}">Delete</button>
-        <button class="bg-orange-500 rounded-sm p-1 text-white" type="submit" id="edit-post">Edit</button>  
+        <button class="bg-red-500 rounded-sm p-1 text-white mb-5 ml-2.5" type="submit" id="delete-post" data-id="{{blog.id}}">Delete</button>
+        <button class="bg-slate-500 rounded-sm p-1 text-white mb-5 ml-2.5" type="submit" id="edit-post">Edit</button>  
         {{/each}}
         </div>
-        <a class="no-button bg-indigo-600 p-3 rounded-md" id="new-post" href="/newPost">Add a Post!</a>
+        <a class="no-button bg-indigo-600 p-3 rounded-md text-white" id="new-post" href="/newPost">Add a Post!</a>
      </div>
 </div>
 
