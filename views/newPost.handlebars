@@ -1,3 +1,20 @@
-<div>
-    <p>Make a New Blog Post!</p>
+<div class="lg:flex lg:items-center lg:justify-between">
+    <div class="container mx-auto">
+        <h2 class="text-2xl leading-7 text-indigo-600 sm:truncate sm:text-3xl sm:tracking-tight">
+            Make a New Blog Post!
+        </h2>
+        <form class="form login-form">
+            <div class="form-group">
+                <input class="border m-2 text-2xl rounded-md pl-2.5" type="text" id="post-title" placeholder="Title" />
+            </div>
+            <div class="form-group">
+                <textarea class="block p-2.5 w-full text-md m-2 text-gray-900 rounded-lg border focus:ring-indigo-500 focus:border-indigo-500" rows="10" id="post-contents" placeholder="Type out all the good stuff..."></textarea>
+            </div>
+            <div class="form-group">
+                <button class="bg-indigo-600 py-1 px-2 rounded-md ml-2 text-lg text-white" id="post-blog">Post it!</button>
+            </div>
+        </form>
+    </div>
 </div>
+
+<script src="js/dashboard.js"></script>

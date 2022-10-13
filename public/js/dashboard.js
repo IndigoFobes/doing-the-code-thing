@@ -1,16 +1,25 @@
-// const newPost = async () => {
-//     const response = await fetch('api/blogs/', {
-//         method: 'POST',
+const newPostHandler = async (event) => {
+    event.preventDefault();
 
-//     })
-// }
+    const title = document.querySelector('#post-title').value.trim();
+    const contents = document.querySelector('#post-contents').value.trim();
 
-// On click, render new post page!
-// const newPostForm = async () => {
-//  const response = await fetch('/newPost'{
-//     method: 'GET',
+    if (title && contents) {
+        const response = await fetch('api/blogs', {
+            method: 'POST',
+            body: JSON.stringify({ title, contents}),
+            headers: {
+                'Content-Type': 'application/json',
+              },
+        });
 
-//  })
-// }
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert('Failed to create blog post');
+            return;
+        }
+    }
+}
 
-// document.querySelector('#new-post').addEventListener('click', newPostForm);
+document.querySelector('#post-blog').addEventListener('click', newPostHandler);
