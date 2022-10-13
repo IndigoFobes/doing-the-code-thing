@@ -1,25 +1,22 @@
-const newPostHandler = async (event) => {
-    event.preventDefault();
+// to delete a post
+const deletePost = async (event) => {
 
-    const title = document.querySelector('#post-title').value.trim();
-    const contents = document.querySelector('#post-contents').value.trim();
+    //alert('button clicked');
+    if (event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
 
-    if (title && contents) {
-        const response = await fetch('api/blogs', {
-            method: 'POST',
-            body: JSON.stringify({ title, contents}),
-            headers: {
-                'Content-Type': 'application/json',
-              },
+        const response = await fetch(`/api/blogs/${id}`, {
+            method: 'DELETE',
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert('Failed to create blog post');
-            return;
-        }
+            //alert('deleted post')
+            document.location.replace('/dashboard'); // refresh page
+          } else {
+            alert('Failed to delete blog post');
+          }
     }
 }
 
-document.querySelector('#post-blog').addEventListener('click', newPostHandler);
+// delete post button
+document.querySelector('.blog-list').addEventListener('click', deletePost);
