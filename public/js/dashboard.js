@@ -1,12 +1,16 @@
-const newPost = async () => {
-    const response = await fetch('api/blogs/', {
-        method: 'POST',
+// const newPost = async () => {
+//     const response = await fetch('api/blogs/', {
+//         method: 'POST',
 
-    })
-}
+//     })
+// }
 
-const newPostForm = async () => {
-console.log("let's make a new blog post!")
-}
+// On click, render new post page!
+// const newPostForm = async () => {
+//  const response = await fetch('/newPost'{
+//     method: 'GET',
 
-document.querySelector('#new-post').addEventListener('click', newPostForm);
+//  })
+// }
+
+// document.querySelector('#new-post').addEventListener('click', newPostForm);

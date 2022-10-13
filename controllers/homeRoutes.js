@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Blog, User, Comment } = require('../models');
+const { truncate } = require('../models/User');
 const withAuth = require('../utils/auth');
 
 // Homepage route
@@ -67,6 +68,13 @@ router.get('/dashboard', withAuth, async (req, res) => {
         res.status(500).json(err);  
     }
 });
+
+// route to newPost page
+router.get('/newPost', withAuth, (req, res) => {
+   res.render('newPost', {
+    logged_in: true,
+   });
+})
 
 // Login route
 router.get('/login', (req, res) => {
